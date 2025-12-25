@@ -7,18 +7,14 @@ import json
 from groq import Groq
 import tweepy
 import time
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Global API Configuration
-GROQ_API_KEY = "YOUR_GROQ_API_KEY"
-TWITTER_API_KEY = "YOUR_TWITTER_API_KEY"
-TWITTER_API_SECRET = "YOUR_TWITTER_API_SECRET"
-TWITTER_ACCESS_TOKEN = "YOUR_TWITTER_ACCESS_TOKEN"
-TWITTER_ACCESS_TOKEN_SECRET = "YOUR_TWITTER_ACCESS_TOKEN_SECRET"
-
 class BlogToTwitterAutomation:
     def __init__(self):
         """
