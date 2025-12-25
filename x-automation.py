@@ -7,6 +7,7 @@ import json
 from groq import Groq
 import tweepy
 import time
+import os
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -22,7 +23,7 @@ class BlogToTwitterAutomation:
         """
         # Initialize Groq client
         try:
-            self.groq_client = Groq(api_key=GROQ_API_KEY)
+            self.groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
             logger.info("✅ Groq API configured")
         except Exception as e:
             logger.error(f"❌ Groq initialization failed: {e}")
@@ -31,10 +32,10 @@ class BlogToTwitterAutomation:
         # Initialize Twitter client
         try:
             self.twitter_client = tweepy.Client(
-                consumer_key=TWITTER_API_KEY,
-                consumer_secret=TWITTER_API_SECRET,
-                access_token=TWITTER_ACCESS_TOKEN,
-                access_token_secret=TWITTER_ACCESS_TOKEN_SECRET
+                consumer_key=os.getenv("TWITTER_API_KEY"),
+                consumer_secret=os.getenv("TWITTER_API_SECRET"),
+                access_token=os.getenv("TWITTER_ACCESS_TOKEN"),
+                access_token_secret=os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
             )
             
             # Test Twitter authentication
