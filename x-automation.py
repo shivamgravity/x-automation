@@ -209,7 +209,7 @@ Make each tweet compelling and different. Focus on actionable insights or intere
             logger.info("🤖 Generating tweets with Groq AI...")
             
             response = self.groq_client.chat.completions.create(
-                model="llama3-8b-8192",  # Fast Groq model
+                model="llama-3.1-8b-instant",  # Fast Groq model
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
